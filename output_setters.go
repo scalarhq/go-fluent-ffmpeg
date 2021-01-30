@@ -164,3 +164,10 @@ func (c *Command) Overwrite(b bool) *Command {
 
 	return c
 }
+
+// OutputOptions sets additional output options
+func (c *Command) OutputOptions(options ...string) *Command {
+	c.Args.output.outputOptions = options
+
+	return c
+}

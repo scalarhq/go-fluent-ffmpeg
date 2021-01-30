@@ -28,3 +28,8 @@ func (a *Args) GetFromFormat() []string {
 
 	return nil
 }
+
+// GetInputOptions returns additional input options
+func (a *Args) GetInputOptions() []string {
+	return a.input.inputOptions
+}

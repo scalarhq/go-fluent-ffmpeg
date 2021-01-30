@@ -183,3 +183,8 @@ func (a *Args) GetOverwrite() []string {
 
 	return nil
 }
+
+// GetOutputOptions returns the additional output options
+func (a *Args) GetOutputOptions() []string {
+	return a.output.outputOptions
+}

@@ -56,13 +56,12 @@ func (c *Command) Build() *exec.Cmd {
 
 // GetArgs returns the arguments for the FFmpeg command.
 func (c *Command) GetArgs() []string {
-	var inputs []string
-	var outputs []string
+	var options []string
 
-	inputs = c.getArgs(c.Args.input, "pipeInput", "inputPath")
-	outputs = c.getArgs(c.Args.output, "pipeOutput", "outputPath")
+	options = append(options, c.getArgs(c.Args.input, "pipeInput", "inputPath")...)
+	options = append(options, c.getArgs(c.Args.output, "pipeOutput", "outputPath")...)
 
-	return append(inputs, outputs...)
+	return append(options, c.Args.globalOptions...)
 }
 
 func (c *Command) getArgs(argType interface{}, targetNames ...string) []string {
@@ -90,7 +89,6 @@ func (c *Command) getArgs(argType interface{}, targetNames ...string) []string {
 			}
 		}
 	}
-
 	return append(options, target...)
 }
 

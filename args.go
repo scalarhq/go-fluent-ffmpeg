@@ -2,8 +2,9 @@ package fluentffmpeg
 
 // Args contains the input and output args set for FFmpeg
 type Args struct {
-	input  inputArgs
-	output outputArgs
+	input         inputArgs
+	output        outputArgs
+	globalOptions []string
 }
 
 type inputArgs struct {
@@ -11,6 +12,7 @@ type inputArgs struct {
 	pipeInput            bool
 	fromFormat           string
 	nativeFramerateInput bool `getter:"none"`
+	inputOptions         []string
 }
 
 type outputArgs struct {
@@ -36,4 +38,5 @@ type outputArgs struct {
 	vFrames               int
 	frameRate             int
 	audioRate             int
+	outputOptions         []string
 }
