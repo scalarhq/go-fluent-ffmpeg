@@ -3,7 +3,7 @@
 A Go version of [node-fluent-ffmpeg](https://github.com/fluent-ffmpeg/node-fluent-ffmpeg).
 
 ## Installation
-`go get -u github.com/modfy/fluent-ffmpeg`
+`go get -u github.com/modfy/go-fluent-ffmpeg`
 
 ### Requirements
 You will need FFmpeg installed on your machine, or you can specify a path to a binary:
@@ -66,3 +66,11 @@ case <-time.After(time.Second * 5):
 case <-done:
 }
 ```
+
+## Credits
+
+This repo was inspired by [node-fluent-ffmpeg](https://github.com/fluent-ffmpeg/node-fluent-ffmpeg) and was built upon the work done by [@bitcodr](https://github.com/bitcodr/) in the https://github.com/bitcodr/gompeg
+
+## Managed Version
+
+You can deploy this codebase yourself or you an entirely managed api from the creators at https://api.modfy.video
