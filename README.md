@@ -67,6 +67,11 @@ case <-done:
 }
 ```
 
+FFprobe is also available for use and returns a map[string]interface{} of JSON data:
+```go
+data := fluentffmpeg.Probe("./video.avi")
+```
+
 ## Credits
 
 This repo was inspired by [node-fluent-ffmpeg](https://github.com/fluent-ffmpeg/node-fluent-ffmpeg) and was built upon the work done by [@bitcodr](https://github.com/bitcodr/) in the https://github.com/bitcodr/gompeg
