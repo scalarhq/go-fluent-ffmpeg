@@ -1,4 +1,4 @@
-# go-fluent-ffmpeg
+# go-fluent-ffmpeg [![GoDoc](https://pkg.go.dev/badge/github.com/modfy/fluent-ffmpeg)](https://pkg.go.dev/github.com/modfy/fluent-ffmpeg)
 
 A Go version of [node-fluent-ffmpeg](https://github.com/fluent-ffmpeg/node-fluent-ffmpeg).
 
