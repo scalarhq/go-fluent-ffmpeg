@@ -28,6 +28,18 @@ err := fluentffmpeg.NewCommand("").
 		Run()
 ```
 
+You could use `context` to set the timeout:
+
+```go
+ctx, cancel := context.WithTimeout(context.Background(), time.Second * 5)
+defer cancel()
+err := fluentffmpeg.NewCommand(""). 
+		InputPath("/path/to/video.avi").
+		OutputFormat("mp4").
+		OutputPath("/path/to/video.mp4").
+		RunWithContext(ctx)
+```
+
 If you want to view the errors/logs returned from FFmpeg, provide an io.Writer to receive the data. 
 ```go
 buf := &bytes.Buffer{}
@@ -37,7 +49,7 @@ err := fluentffmpeg.NewCommand("").
 		OutputPath("./video.mp4").
 		Overwrite(true).
 		OutputLogs(buf). // provide a io.Writer
-        Run()
+		Run()
 
 out, _ := ioutil.ReadAll(buf) // read logs
 fmt.Println(string(out))
@@ -48,11 +60,11 @@ You can also get the command in the form of an [exec.Cmd](https://golang.org/pkg
 ```go
 done := make(chan error, 1)
 cmd := fluentffmpeg.NewCommand("").
-    InputPath("./video.avi").
-    OutputFormat("mp4").
-    OutputPath("./video.mp4").
-    Overwrite(true).
-    Build()
+		InputPath("./video.avi").
+		OutputFormat("mp4").
+		OutputPath("./video.mp4").
+		Overwrite(true).
+		Build()
 cmd.Start()
 
 go func() {
