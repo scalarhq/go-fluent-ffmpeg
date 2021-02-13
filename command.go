@@ -1,6 +1,7 @@
 package fluentffmpeg
 
 import (
+	"context"
 	"io"
 	"os/exec"
 	"reflect"
@@ -35,9 +36,19 @@ func (c *Command) Run() error {
 	return c.Build().Run()
 }
 
+// RunWithContext is like Run but includes a context which is used to kill the process
+func (c *Command) RunWithContext(ctx context.Context) error {
+	return c.BuildWithContext(ctx).Run()
+}
+
 // Build returns an exec.Cmd struct ready to run the FFmpeg command with its arguments
 func (c *Command) Build() *exec.Cmd {
-	cmd := exec.Command(c.FFmpegPath, c.GetArgs()...)
+	return c.BuildWithContext(context.Background())
+}
+
+// BuildWithContext is like Build but includes a context which is used to kill the process
+func (c *Command) BuildWithContext(ctx context.Context) *exec.Cmd {
+	cmd := exec.CommandContext(ctx, c.FFmpegPath, c.GetArgs()...)
 
 	if c.input != nil {
 		cmd.Stdin = c.input
