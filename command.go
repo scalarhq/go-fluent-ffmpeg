@@ -25,7 +25,11 @@ func NewCommand(ffmpegPath string) *Command {
 	}
 	return &Command{
 		FFmpegPath: ffmpegPath,
-		Args:       &Args{},
+		Args: &Args{
+			output: outputArgs{
+				constantRateFactor: -1, // Initialize to -1 because zero value is a valid parameter
+			},
+		},
 	}
 }
 

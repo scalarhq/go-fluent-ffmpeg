@@ -22,6 +22,15 @@ func (a *Args) GetAspectRatio() []string {
 	return nil
 }
 
+// GetConstantRateFactor gets the constant rate factor (CRF) for video encoding
+func (a *Args) GetConstantRateFactor() []string {
+	if a.output.constantRateFactor != -1 {
+		return []string{"-crf", fmt.Sprintf("%d", a.output.constantRateFactor)}
+	}
+
+	return nil
+}
+
 // GetVideoBitRate returns returns the arguments for video bit rate
 func (a *Args) GetVideoBitRate() []string {
 	if a.output.videoBitRate != 0 {

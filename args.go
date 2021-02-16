@@ -30,6 +30,7 @@ type outputArgs struct {
 	audioChannels         int
 	keyframeInterval      int
 	audioCodec            string
+	constantRateFactor    int
 	videoBitRate          int
 	videoBitRateTolerance int
 	videoMaxBitrate       int

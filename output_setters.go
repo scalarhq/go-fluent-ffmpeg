@@ -17,6 +17,13 @@ func (c *Command) Resolution(v string) *Command {
 	return c
 }
 
+// ConstantRateFactor sets the constant rate factor (CRF) for video encoding
+func (c *Command) ConstantRateFactor(v int) *Command {
+	c.Args.output.constantRateFactor = v
+
+	return c
+}
+
 // VideoBitRate gets the video bit rate.
 func (c *Command) VideoBitRate(v int) *Command {
 	c.Args.output.videoBitRate = v
