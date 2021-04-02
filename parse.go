@@ -78,7 +78,7 @@ func parseProgressKeyValue(p *Progress, key string, value string) error {
 		if err != nil {
 			return err
 		}
-		p.OutTime = time.Millisecond * time.Duration(i)
+		p.OutTime = time.Microsecond * time.Duration(i)
 	default:
 		if p.Other == nil {
 			p.Other = make(map[string]string)
