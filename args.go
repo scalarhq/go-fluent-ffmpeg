@@ -41,3 +41,7 @@ type outputArgs struct {
 	audioRate             int
 	outputOptions         []string
 }
+
+func (a *Args) GetOptions() []string {
+	return a.globalOptions
+}
