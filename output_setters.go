@@ -82,7 +82,7 @@ func (c *Command) AudioRate(v int) *Command {
 
 // AudioBitRate sets the audio bit rate
 func (c *Command) AudioBitRate(v int) *Command {
-	c.Args.output.audioRate = v
+	c.Args.output.audioBitrate = v
 
 	return c
 }
