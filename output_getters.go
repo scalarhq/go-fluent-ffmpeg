@@ -98,7 +98,7 @@ func (a *Args) GetAudioRate() []string {
 // GetAudioBitrate returns the arguments for bitrate
 func (a *Args) GetAudioBitrate() []string {
 	if a.output.audioBitrate != 0 {
-		return []string{"-b:a", fmt.Sprintf("%d", a.output.audioRate)}
+		return []string{"-b:a", fmt.Sprintf("%d", a.output.audioBitrate)}
 	}
 	return nil
 }
